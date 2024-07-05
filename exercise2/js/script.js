@@ -82,6 +82,7 @@ async function fetchData() {
 fetchData();
 
 function accordionCheckDesktop() {
+   // Desktop reset to remove accordion classes
   const mobileTabContents = document.querySelectorAll('.tab-mobile-content');
   mobileTabContents.forEach(content => content.classList.remove('active'));
 }
@@ -126,7 +127,7 @@ function handleWindowSizeChange() {
     accordionCheck(); // Call accordionCheck function
     addClassToFirstTabContent();
   } else {
-    accordionCheckDesktop();
+    accordionCheckDesktop(); // Call accordionCheckDesktop function for desktop reset
   }
 }
 

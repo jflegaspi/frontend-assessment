@@ -1,6 +1,128 @@
 @import 'mixins';
 @import 'reset';
 
-.tab {
+h1, p, span, a, li {
+    line-height: 1.5;
+    font-weight: 300;
+}
+  
+body {
+    word-wrap: break-word;
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.tab-content {
     display: none;
+}
+
+.tab-mobile-content {
+    max-height: 0;
+    overflow: hidden;
+
+    &.active {
+        max-height: 300px;
+        .transition(max-height 0.2s ease-in);
+    }
+}
+
+.bonus-content-answer-wrapper {
+    margin-top: 40px;
+
+    ul {
+        margin-top: 30px;
+        li {
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 651px) {
+    .tab-button {
+        .flex();
+        .flex-justify(space-between);
+        .flex-align-items(center);
+        padding: 20px;
+        border-bottom: 1px solid #000000;
+        text-align: left;
+        font-weight: bold;
+        cursor: pointer;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #000000;
+            transition: transform 0.5s;
+        }
+
+        &.clicked {
+            &::after {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .tab-mobile-content {
+        &.active {
+            padding: 20px;
+            border-bottom: 1px solid #000000;
+        }
+    }
+}
+
+
+@media screen and (min-width: 650px) {
+    .tab-container {
+        width: 75%;
+        margin: auto;
+    }
+    
+    .tab {
+        height: 0;
+        opacity: 0;
+        .transition(opacity 0.2s linear);
+        overflow: hidden;
+    }
+    
+    .tabs {
+        .flex();
+        z-index: 1;
+        position: relative;
+    
+        .tab-button {
+            padding: 5px 10px;
+            border: 1px solid #000000;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            font-weight: bold;
+    
+            &.clicked {
+                border-bottom: 1px solid #ffffff;
+            }
+    
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    
+    .tab-content {
+        border: 1px solid #000000;
+        position: relative;
+        top: -1px;
+        padding: 30px 40px;
+        display: block;
+    }
+
+    .tab-mobile-content {
+        display: none;
+    }
 }

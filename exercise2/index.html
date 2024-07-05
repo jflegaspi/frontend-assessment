@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>John Francis Legaspi -- FE Assessment Excercise #2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css" type="text/css"/>
+</head>
+<body>
+    <div class="tab-container">
+        <div class="tabs"></div>
+        <div class="tab-content"></div>
+    </div>
+    
+    <script src="js/script.js"></script>
+
+    <div class="bonus-content-answer-wrapper">
+        <p>Explain why the result of <span>('b' + 'a' + + 'a' + 'a').toLowerCase()</span> is <span>banana</span>.</p>
+        <ul class="bonus-content-answer">
+            <li><span>'b' + 'a'</span> This concatenates the string "b" and "a" producing <span>"ba".</span></li>
+            <li>While <span>+ 'a'</span> attempts to convert the string <span>"a"</span> into a number. Because <span>'a'</span> cannot be directly converted into a number, it returns <span>NaN</span> (Not-a-Number).</li>
+            <li>When <span>'ba'</span> is concatenated with <span>NaN</span>, JavaScript converts the <span>NaN</span> to a string, resulting to <span>'baNaN'</span>.</li>
+            <li>And then <span>'baNaN'</span> <span>+ 'a'</span> is concatenated and will result to <span>'baNaNa'</span>.</li>
+            <li>The method .toLowerCase() converts the string into lowercase and will produce <span>'banana'</span>.</li>
+        </ul>
+    </div>
+</body>
+</html>

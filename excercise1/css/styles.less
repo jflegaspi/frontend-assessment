@@ -1,0 +1,130 @@
+@import 'mixins';
+@import 'reset';
+
+h1, p, span, a {
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+body {
+    word-wrap: break-word;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.main-banner {
+    min-height: 400px;
+    width: 100%;
+    background-position: center center;
+    background-size: auto;
+    background-image: url('../images/600x600.png');
+    margin-bottom: 40px;
+    .flex();
+
+    .banner-text {
+        .flex-align-content(center);
+        .flex-justify(center);
+        width: 100%;
+        text-align: center;
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, 0.3);
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 50px;
+            font-weight: 800;
+        }
+        
+        p {
+            font-size: 25px;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+.articles {
+    padding: 0 25px;
+
+    article {
+        .flex();
+        .flex-direction(column);
+        .flex-justify(space-between);
+        margin-bottom: 40px;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        padding: 20px;
+        max-width: 330px;
+        margin: 0 auto 40px;
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: inline-block;
+            color: #000000;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            letter-spacing: 2px;
+            border: 3px solid #000000;
+            padding: 12px 15px;
+            border-radius: 50px;
+            max-width: 110px;
+            margin: 0 auto;
+
+            span {
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            &:hover {
+                background: #000000;
+                color: #ffffff;
+            }
+        }
+    }
+
+    img {
+        border-radius: 5px;
+        display: block;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .main-content {
+        .flex();
+        .flex-direction(column);
+        .flex-align-items(center);
+    }
+
+    .main-banner {
+        background-image: url('../images/1920x650.png');
+        min-height: 550px;
+
+        .banner-text {
+            h1 {
+                margin-bottom: 0;
+                font-size: 60px;
+            }
+          
+            p {
+                font-size: 30px;
+            }
+        }
+    }
+
+    .articles {
+        max-width: 1060px;
+        gap: 40px;
+        .flex();
+        .flex-direction(row);
+
+
+        article {
+            flex: 1;
+        }
+    }
+}
